@@ -1,0 +1,17 @@
+body {
+  font-size: 12px;
+}
+
+.nav-item {
+  margin-left: 20px;
+}
+
+.nav-link {
+  border-radius: 15px;
+  transition: all 0.3s;
+}
+
+.nav-link:hover {
+  color: #343a40 !important;
+  background-color: #e0ca00;
+}

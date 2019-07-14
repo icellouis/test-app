@@ -1,0 +1,134 @@
+<!-- Barra de navegación -->
+<div class="container-fluid bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark container">
+    <a class="navbar-brand" href="#">
+      <img src="../assets/img/logo.png" class="img-fluid" style="width: 120px; border-radius: 10px;" alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+      aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav font-weight-bold ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">HOME <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">NEWS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">BLOG</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">EVENTS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">FILMS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">DATABANK</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+
+<!-- Banner  -->
+<div>
+  <img class="d-block w-100" src="../assets/img/img2.jpg" alt="First slide">
+</div>
+
+<!-- Request  -->
+<div class="container my-2">
+  <div class="row justify-content-center">
+    <div class="col">
+      <div class="form-inline">
+        <select class="form-control" [(ngModel)]="param">
+          <option value="people" selected>People</option>
+          <option value="starships">Starships</option>
+          <option value="species">Species</option>
+          <option value="planets">Planets</option>
+        </select>
+        <button class="btn btn-warning mx-2" (click)="makeRequest()">
+          Search
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container my-2">
+  <div class="row">
+    <div class="col-4" *ngFor="let i of response">
+      <!-- People -->
+      <div class="card" *ngIf="selected.people">
+        <div class="card-header">
+          <h4>{{i.name}}</h4>
+        </div>
+        <div class="car-body">
+          <p>Birth year: {{i.birth_year}}</p>
+          <p>Eye color: {{i.eye_color}}</p>
+          <p>Gender: {{i.gender}}</p>
+        </div>
+      </div><br>
+      <!-- Starships -->
+      <div class="card" *ngIf="selected.starships">
+        <div class="card-header">
+          <h4>{{i.name}}</h4>
+        </div>
+        <div class="car-body">
+          <p>Model: {{i.model}}</p>
+          <p>Consumables: {{i.consumables}}</p>
+          <p>Cost: {{i.cost_in_credits}}</p>
+          <p>Passengers: {{i.passengers}}</p>
+        </div><br>
+      </div>
+      <!-- species -->
+      <div class="card" *ngIf="selected.species">
+        <div class="card-header">
+          <h4>{{i.name}}</h4>
+        </div>
+        <div class="car-body">
+          <p>Height: {{i.average_height}}</p>
+          <p>Designation: {{i.designation}}</p>
+          <p>Calsification: {{i.clasification}}</p>
+          <p>Skin colors: {{i.skin_colors}}</p>
+        </div><br>
+      </div>
+      <!-- Planets -->
+      <div class="card" *ngIf="selected.planets">
+        <div class="card-header">
+          <h4>{{i.name}}</h4>
+        </div>
+        <div class="car-body">
+          <p>Population: {{i.population}}</p>
+          <p>Climate: {{i.climate}}</p>
+          <p>Diameter: {{i.diameter}}</p>
+          <p>Rotation period: {{i.rotation_period}}</p>
+        </div><br>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="container-fluid bg-dark">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col text-center text-light">
+        <p>
+          FOLLOW STAR WARS:
+        </p>
+        <p>
+          LA &copy; All rights reserved.
+        </p>
+        <p>
+          Terms of Use | Legal Notices | Privacy Policy | Children’s Online Privacy | Star Wars at shopDisney | Star
+          Wars Helpdesk | Interest-Based Ads
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<router-outlet></router-outlet>
